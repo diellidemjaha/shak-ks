@@ -1,9 +1,13 @@
+<!-- footer.php -->
 
-    </main>
+</main>
 
-    <footer>
-        <?php wp_footer(); ?>
-    </footer>
+<footer>
+    <div class="contact-info">
+        <p>Contact us: info@infopage.com</p>
+    </div>
+</footer>
 
+<?php wp_footer(); ?>
 </body>
 </html>

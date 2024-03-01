@@ -1,51 +1,71 @@
-/* Example dropdown styles */
-nav ul ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
+body {
+    background: url('./background-image.jpeg') center center fixed;
+    background-size: cover;
+ /* Adjust text color for better visibility on the background */
+    color: black;
+    font-weight: 500;
 }
 
-nav ul li:hover > ul {
-    display: inherit;
+header {
+    background-color: #3498db; /* Blue color */
+    padding: 10px;
+    margin-top: 0px;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-/* Style the search form */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-text {
+    color: #fff;
+    font-size: 20px;
+}
+
 .search-container {
-    margin: 20px 0;
+    margin: 15px 15px 15px 15px;
 }
 
 .search-form {
     display: flex;
 }
 
-.search-field {
-    width: 100%;
-    padding: 10px;
+.search-form input[type="search"] {
+    padding: 8px;
+    width: 70%;
+    border: none; /* Remove input border */
+    border-radius: 5px; /* Rounded corners for input */
+    background-color: #fff; /* White background for input */
+    color: #000; /* Black text color for input */
 }
 
-.search-submit {
-    background-color: #0073aa;
+.navbar-links ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-links li {
+    margin-right: 20px;
+}
+
+.navbar-links a {
     color: #fff;
-    padding: 10px;
-    cursor: pointer;
-}
-
-/* Style search results */
-article {
-    margin-bottom: 20px;
-}
-
-h2 a {
-    color: #0073aa;
     text-decoration: none;
+    font-size: 16px;
 }
 
-h2 a:hover {
+.navbar-links a:hover {
     text-decoration: underline;
-}
-
-.entry-content {
-    color: red;
 }

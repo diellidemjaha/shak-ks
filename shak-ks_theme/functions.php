@@ -1,8 +1,24 @@
 <?php
 // functions.php
 
+// Enqueue custom styles
+// Enqueue custom styles and Bootstrap 5
 function enqueue_custom_styles() {
-    wp_enqueue_style('custom-style', get_stylesheet_directory_uri() . '/custom-style.css');
+
+    wp_register_style('shak-bootstrap-style', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
+    wp_register_script('shak-bootstrap-script', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array(), '0.1', true );
+ // Enqueue Bootstrap 5 CSS
+ wp_enqueue_style('shak-bootstrap-style');
+
+ // Enqueue custom styles
+ wp_enqueue_style('custom-style', get_stylesheet_directory_uri() . '/custom-style.css');
+
+ // Enqueue Bootstrap 5 JS
+ wp_enqueue_script('shak-bootstrap-script');
+    // Enqueue jQuery in compatibility mode
+    wp_enqueue_script('jquery-compat', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), null, true);
+    wp_add_inline_script('jquery-compat', 'var $ = jQuery.noConflict();');
+
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
 
@@ -43,3 +59,5 @@ function custom_nav_menu_items($items, $menu, $args) {
     return $items;
 }
 add_filter('wp_get_nav_menu_items', 'custom_nav_menu_items', 10, 3);
+
+
