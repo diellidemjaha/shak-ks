@@ -1,0 +1,51 @@
+/* Example dropdown styles */
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+nav ul li:hover > ul {
+    display: inherit;
+}
+
+
+/* Style the search form */
+.search-container {
+    margin: 20px 0;
+}
+
+.search-form {
+    display: flex;
+}
+
+.search-field {
+    width: 100%;
+    padding: 10px;
+}
+
+.search-submit {
+    background-color: #0073aa;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Style search results */
+article {
+    margin-bottom: 20px;
+}
+
+h2 a {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+h2 a:hover {
+    text-decoration: underline;
+}
+
+.entry-content {
+    color: red;
+}
