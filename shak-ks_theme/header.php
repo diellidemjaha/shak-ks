@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <?php wp_head(); ?>
 </head>
 
@@ -40,10 +42,17 @@
                     </ul>
                 </div>
             </div>
-            <div class="d-flex gap-2 bg-dark text-white p-4 mt-0"> <!-- Move this div to the right -->
-                <div class="search-container">
-                    <?php get_search_form(); ?>
-                </div>
+            <div class="d-flex gap-2 bg-dark text-white p-4 mt-0 rounded-1"> <!-- Move this div to the right -->
+            <div class="search-container">
+    <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
+        <label>
+            <span class="screen-reader-text"><?php _e('Search for:', 'shak-ks_theme'); ?></span>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input type="search" class="search-field" placeholder="<?php echo esc_attr_x('Search...', 'placeholder', 'shak-ks_theme'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+        </label>
+        <!-- Remove the button -->
+    </form>
+</div>
                 <a class="nav-link" href="#">Favorites</a>
                 <a class="btn btn-outline-light" href="#">Log in</a>
             </div>
