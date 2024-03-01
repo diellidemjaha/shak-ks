@@ -14,7 +14,7 @@
 <body <?php body_class(); ?>>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light mt-0">
             <a class="navbar-brand" href="#">
                 <img src="<?php echo get_template_directory_uri(); ?>/logo.png" alt="Logo" height="60" class="d-inline-block align-top">
                 <span class="logo-text fs-1">infoPAGE</span>
@@ -40,7 +40,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="d-flex gap-2 bg-dark text-white p-3"> <!-- Move this div to the right -->
+            <div class="d-flex gap-2 bg-dark text-white p-4 mt-0"> <!-- Move this div to the right -->
                 <div class="search-container">
                     <?php get_search_form(); ?>
                 </div>
