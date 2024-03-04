@@ -1,14 +1,14 @@
+/* Custom Styles for WordPress Theme */
+
 body {
     background: url('./background-image.jpeg') center center fixed;
     background-size: cover;
- /* Adjust text color for better visibility on the background */
     color: black;
     font-weight: 500;
 }
 
 header {
-    background-color: #3498db; /* Blue color */
-    padding: 10px;
+    background-color: #000080;
     margin-top: 0px;
 }
 
@@ -16,6 +16,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.custom-navbar {
+    background-color: #002aff;
+    /* Change this color to your desired shade of blue */
 }
 
 .logo {
@@ -45,10 +50,14 @@ header {
 .search-form input[type="search"] {
     padding: 8px;
     width: 70%;
-    border: none; /* Remove input border */
-    border-radius: 5px; /* Rounded corners for input */
-    background-color: #fff; /* White background for input */
-    color: #000; /* Black text color for input */
+    border: none;
+    /* Remove input border */
+    border-radius: 5px;
+    /* Rounded corners for input */
+    background-color: #fff;
+    /* White background for input */
+    color: #000;
+    /* Black text color for input */
 }
 
 .navbar-links ul {
@@ -62,10 +71,144 @@ header {
 
 .navbar-links a {
     color: #fff;
+    /* Set the main nav link color to white */
     text-decoration: none;
     font-size: 16px;
 }
 
 .navbar-links a:hover {
     text-decoration: underline;
+}
+
+.navbar-nav .menu-item-has-children {
+    position: relative;
+}
+
+/* Style for the first dropdown links */
+/* Style for the first-level dropdown links */
+.navbar-nav .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 0px;
+}
+
+.navbar-nav .menu-item-has-children:hover>.sub-menu {
+    display: block;
+}
+
+.navbar-nav .sub-menu li {
+    padding: 10px;
+}
+
+.navbar-nav .sub-menu a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar-nav .sub-menu a:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Style for the second-level dropdown links */
+.navbar-nav .sub-menu .sub-menu {
+    position: absolute;
+    top:0;
+    left: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 0px;
+    margin-top: -10px;
+}
+
+.navbar-nav .sub-menu:hover>.sub-menu {
+    display: block;
+}
+
+.navbar-nav .sub-menu .sub-menu li {
+    padding: 10px;
+}
+
+.navbar-nav .sub-menu .sub-menu a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar-nav .sub-menu .sub-menu a:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Style for the third-level dropdown links */
+/* Style for the third-level dropdown links */
+.navbar-nav .sub-menu .sub-menu .sub-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    color: black;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 0px;
+    /* Adjust the border-radius as needed */
+    margin-top: 10px;
+}
+
+.navbar-nav .sub-menu .sub-menu:hover>.sub-menu {
+    display: block;
+}
+
+.navbar-nav .sub-menu .sub-menu .sub-menu li {
+    padding: 10px;
+}
+
+.navbar-nav .sub-menu .sub-menu .sub-menu a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar-nav .sub-menu .sub-menu .sub-menu a:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-nav .sub-menu .sub-menu .sub-menu .sub-menu {
+    position: absolute;
+    top: 25;
+    left: 100%;
+    color: black;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 0px;
+    /* Adjust the border-radius as needed */
+    margin-top: 10px;
+}
+
+.navbar-nav .sub-menu .sub-menu .sub-menu:hover>.sub-menu {
+    display: block;
+}
+
+.navbar-nav .sub-menu .sub-menu .sub-menu li {
+    padding: 10px;
+}
+
+.navbar-nav .sub-menu .sub-menu .sub-menu a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar-nav .sub-menu .sub-menu .sub-menu a:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }

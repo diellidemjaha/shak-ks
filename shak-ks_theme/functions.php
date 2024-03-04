@@ -30,36 +30,33 @@ function custom_theme_setup() {
 }
 add_action('after_setup_theme', 'custom_theme_setup');
 
-// Filter to modify the menu items
-function custom_nav_menu_items($items, $menu, $args) {
-    // Check if the 'theme_location' property exists in the $args array
-    if (isset($args->theme_location) && $args->theme_location == 'primary') {
-        // Check if the user is logged in
-        if (is_user_logged_in()) {
-            // Find the menu item with the title "Link 1"
-            $link1_item = false;
-            foreach ($items as $item) {
-                if ($item->title == 'Link 1') {
-                    $link1_item = $item;
-                    break;
-                }
-            }
 
-            // If "Link 1" is found, modify its sub-items
-            if ($link1_item) {
-                foreach ($link1_item->children as $child) {
-                    // If the sub-item is "c" and the user is not an admin, remove it
-                    if ($child->title == 'c' && !current_user_can('administrator')) {
-                        unset($link1_item->children[$child->ID]);
-                    }
-                }
-            }
+function register_user_on_post() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
+        // Sanitize and validate form data
+        $username = sanitize_user($_POST['username']);
+        $email = sanitize_email($_POST['email']);
+        $password = $_POST['password'];
+
+        // Create a new user with hashed password
+        $user_id = wp_create_user($username, $password, $email);
+
+        if (!is_wp_error($user_id)) {
+            // Registration successful
+            wp_redirect(home_url('/registration-successful/')); // Redirect to success page
+            exit;
+        } else {
+            // Registration failed
+            $error_message = $user_id->get_error_message();
+            echo "Registration failed: $error_message";
         }
     }
-    return $items;
 }
-add_filter('wp_get_nav_menu_items', 'custom_nav_menu_items', 10, 3);
+add_action('init', 'register_user_on_post');
 
-
-
-
+// Customize login redirection
+function custom_login_redirect($redirect_to, $request, $user) {
+    // Redirect all users to the home page
+    return home_url('/');
+}
+add_filter('login_redirect', 'custom_login_redirect', 10, 3);

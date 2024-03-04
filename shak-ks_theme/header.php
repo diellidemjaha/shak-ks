@@ -16,10 +16,10 @@
 <body <?php body_class(); ?>>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light mt-0">
+        <nav class="navbar navbar-expand-lg navbar-light mt-0 custom-navbar">
             <a class="navbar-brand" href="#">
-                <img src="<?php echo get_template_directory_uri(); ?>/logo.png" alt="Logo" height="60" class="d-inline-block align-top">
-                <span class="logo-text fs-1">infoPAGE</span>
+                <img src="<?php echo get_template_directory_uri(); ?>/logo.png" alt="Logo" height="60" class="d-inline-block align-top m-2">
+                <span class="logo-text fs-1"><b>info</b>PAGE</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
 
             
             <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-links">
+                <div class="navbar-links mt-5">
                     <ul class="navbar-nav">
                         <?php
                         // Display the custom menu
@@ -44,17 +44,17 @@
             </div>
             <div class="d-flex gap-2 bg-dark text-white p-4 mt-0 rounded-1"> <!-- Move this div to the right -->
             <div class="search-container">
-    <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
-        <label>
-            <span class="screen-reader-text"><?php _e('Search for:', 'shak-ks_theme'); ?></span>
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input type="search" class="search-field" placeholder="<?php echo esc_attr_x('Search...', 'placeholder', 'shak-ks_theme'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-        </label>
-        <!-- Remove the button -->
-    </form>
-</div>
-                <a class="nav-link" href="#">Favorites</a>
-                <a class="btn btn-outline-light" href="#">Log in</a>
+                <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
+                    <label>
+                        <span class="screen-reader-text"><?php _e('Search for:', 'shak-ks_theme'); ?></span>
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <input type="search" class="search-field" placeholder="<?php echo esc_attr_x('Search...', 'placeholder', 'shak-ks_theme'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+                    </label>
+                </form>
+            </div>
+            <?php echo do_shortcode('[google-translator]'); ?>
+                <!-- <a class="nav-link mt-2" href="#">Favorites</a> -->
+                <a class="btn btn-outline-light rounded-5" href="<?php echo get_stylesheet_directory_uri(); ?>/login-form/">Log in</a>
             </div>
         </nav>
     </header>
