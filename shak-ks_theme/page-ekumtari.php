@@ -12,8 +12,8 @@ get_header();
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Lajmet</h5>
-                    <p class="card-text">View the latest news.</p>
-                    <a href="<?php echo get_post_type_archive_link('lajmet'); ?>" class="btn btn-primary">View Lajmet</a>
+                    <p class="card-text">Shiqo lajmet e fundit.</p>
+                    <a href="<?php echo get_post_type_archive_link('lajmet'); ?>" class="btn btn-primary">Shiqo Lajmet</a>
                 </div>
             </div>
         </div>
@@ -22,8 +22,8 @@ get_header();
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Temat e Diskutimit</h5>
-                    <p class="card-text">Explore and discuss various topics.</p>
-                    <a href="<?php echo get_post_type_archive_link('temat_e_diskutimit'); ?>" class="btn btn-primary">View Temat e Diskutimit</a>
+                    <p class="card-text">Eksploroni dhe diskutoni temat e ndryshme.</p>
+                    <a href="<?php echo get_post_type_archive_link('temat_e_diskutimit'); ?>" class="btn btn-primary">Shiqo Temat e Diskutimit</a>
                 </div>
             </div>
         </div>

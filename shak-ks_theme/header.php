@@ -19,7 +19,7 @@
         <nav class="navbar navbar-expand-lg navbar-light mt-0 custom-navbar">
             <a class="navbar-brand" href="#">
                 <img src="<?php echo get_template_directory_uri(); ?>/logo.png" alt="Logo" height="60" class="d-inline-block align-top m-2">
-                <span class="logo-text fs-1"><b>info</b>PAGE</span>
+                <span class="logo-text fs-1"><b>Info</b>PAGE</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
