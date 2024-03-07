@@ -9,14 +9,13 @@
                 <div class="container bg-light">
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                         <header class="entry-header text-light m-0">
-                            <h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                            <h1 class="entry-title"><a style="color:white;" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                             <div class="entry-meta">
                                 <?php echo 'Published on ' . get_the_date(); ?>
                             </div>
                         </header><!-- .entry-header -->
 
                         <div class="entry-content">
-                            <?php the_excerpt(); ?>
                         </div><!-- .entry-content -->
 
                         <footer class="entry-footer">

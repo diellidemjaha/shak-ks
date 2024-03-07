@@ -119,5 +119,54 @@ function add_comments_support_to_temat_e_diskutimit() {
     add_post_type_support('temat_e_diskutimit', 'comments');
 }
 
+function custom_menu_item_classes($classes, $item, $args) {
+    // Check if the current user is not logged in
+    if (!is_user_logged_in()) {
+        // Check if the menu item corresponds to "Link 10" or is a parent of "Link 10"
+        if ($item->title === 'Translated link' || in_array('menu-item-has-children', $item->classes)) {
+            // Add the "disabled" class
+            $classes[] = 'disabled';
+            // Add custom data attribute to store disabled status
+            $item->url .= ' data-disabled="true"';
+        }
+    }
 
+    return $classes;
+}
 
+add_filter('nav_menu_css_class', 'custom_menu_item_classes', 10, 3);
+
+// JavaScript function to prevent clicking on disabled links
+function custom_disable_links_script() {
+    ?>
+    <style>
+        .menu-item.disabled a {
+            pointer-events: none;
+            cursor: default;
+        }
+    </style>
+   <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var disabledLinks = document.querySelectorAll('.menu-item.disabled a');
+            disabledLinks.forEach(function (link) {
+                link.removeAttribute('title'); // Remove the title attribute to hide the tooltip
+                link.addEventListener('click', function (event) {
+                    if (link.getAttribute('data-disabled') === 'true') {
+                        event.preventDefault();
+                        alert('This link is disabled.');
+                    }
+                });
+            });
+        });
+    </script>
+    <?php
+}
+
+add_action('wp_footer', 'custom_disable_links_script');
+
+function custom_logout_redirect() {
+    wp_redirect(home_url()); // Redirect to home page
+    exit();
+}
+
+add_action('wp_logout', 'custom_logout_redirect');
