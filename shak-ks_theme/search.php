@@ -8,7 +8,7 @@
         ?>
                 <div class="container bg-light mt-2 mb-2">
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <header class="card vh-50 mt-5 p-4 h-100 custom-container">
+                        <header class="card vh-50 mt-3 p-4 h-100 custom-box">
                             <h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                             <div class="entry-meta">
                                 </div>

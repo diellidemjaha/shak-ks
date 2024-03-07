@@ -327,3 +327,6 @@ footer {
 .custom-container {
     min-height: 300px; /* Adjust the height as needed */
 }
+.custom-box {
+    min-height: 100px; /* Adjust the height as needed */
+}
