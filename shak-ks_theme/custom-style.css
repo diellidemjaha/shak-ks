@@ -315,7 +315,8 @@ a {
 footer {
     background-color: #05014a; /* Replace with your header background color */
     color: #fff; /* White text color */
-    padding: 97px; /* Adjust padding as needed */
+    padding: 50px; /* Adjust padding as needed */
+    margin-top: 15%;
 }
 
 /* Optionally, you can remove the box shadow from the footer */

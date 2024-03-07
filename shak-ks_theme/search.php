@@ -8,16 +8,17 @@
         ?>
                 <div class="container bg-light mt-2 mb-2">
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <header class="card vh-50 mt-3 p-4 h-100 custom-box">
-                            <h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-                            <div class="entry-meta">
-                                </div>
-                            </header><!-- .entry-header -->
+                        <div class="card mt-3 p-4 custom-box">
+                            <!-- <h1 class="entry-title"></h1> -->
+                        <h5 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+                        <div class="entry-meta">
+                            </div>
                             
-                            <div class="entry-content">
+                            <!-- <div class="entry-content"> -->
                                 </div><!-- .entry-content -->
-                                
-                                <?php echo '<div class="mt-0">Published on ' . get_the_date(); '</div>'?>
+                                <p class="card-text"> <?php echo '<div class="mt-0">Published on ' . get_the_date(); '</div>'?></p>
+
+                               
                         <!-- <footer class="entry-footer"> -->
                             <?php edit_post_link('Edit', '<span class="edit-link">', '</span>'); ?>
                     <!-- .entry-footer -->
