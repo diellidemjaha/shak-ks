@@ -6,22 +6,23 @@
         if (have_posts()) :
             while (have_posts()) : the_post();
         ?>
-                <div class="container bg-light">
+                <div class="container bg-light mt-2 mb-2">
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <header class="entry-header text-light m-0">
-                            <h1 class="entry-title"><a style="color:white;" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                        <header class="card vh-50 mt-5 p-4 h-100 custom-container">
+                            <h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                             <div class="entry-meta">
-                                <?php echo 'Published on ' . get_the_date(); ?>
-                            </div>
-                        </header><!-- .entry-header -->
-
-                        <div class="entry-content">
-                        </div><!-- .entry-content -->
-
-                        <footer class="entry-footer">
+                                </div>
+                            </header><!-- .entry-header -->
+                            
+                            <div class="entry-content">
+                                </div><!-- .entry-content -->
+                                
+                                <?php echo '<div class="mt-0">Published on ' . get_the_date(); '</div>'?>
+                        <!-- <footer class="entry-footer"> -->
                             <?php edit_post_link('Edit', '<span class="edit-link">', '</span>'); ?>
-                        </footer><!-- .entry-footer -->
+                    <!-- .entry-footer -->
                     </article><!-- #post-<?php the_ID(); ?> -->
+                </div>
                 </div>
         <?php
             endwhile;

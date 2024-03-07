@@ -305,8 +305,25 @@ header {
 
 a {
     color: #020079;
+    text-decoration: none;
 }
 
 .navbar-toggler-icon {
     filter: invert(1); /* Invert the color */
+}
+
+footer {
+    background-color: #020079; /* Replace with your header background color */
+    color: #fff; /* White text color */
+    padding: 97px; /* Adjust padding as needed */
+}
+
+/* Optionally, you can remove the box shadow from the footer */
+footer {
+    box-shadow: none;
+    margin-bottom: 0px;
+}
+
+.custom-container {
+    min-height: 300px; /* Adjust the height as needed */
 }
