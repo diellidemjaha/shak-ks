@@ -6,11 +6,11 @@
         while (have_posts()) :
             the_post();
         ?>
-            <div class="container bg-light">
+            <div class="container bg-light d-flex flex-column">
 
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <header class="entry-header text-light m-0">
-                    <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+                    <div class="container text-light mt-2 p-3">
+                  <div class="fs-1" style="color:black; text-decoration:none;"  <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
                     <div class="entry-meta">
                         <?php
                         echo 'Published on ' . get_the_date();
@@ -24,7 +24,6 @@
                 
                 <footer class="entry-footer">
                     <?php edit_post_link('Edit', '<span class="edit-link">', '</span>'); ?>
-                </footer><!-- .entry-footer -->
             </article><!-- #post-<?php the_ID(); ?> -->
             
             <?php
