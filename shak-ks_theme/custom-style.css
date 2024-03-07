@@ -305,9 +305,8 @@ header {
 
 a {
     color: #020079;
-    pointer-events: none;
 }
 
-.menu-item.disabled a {
-    cursor: default;
+.navbar-toggler-icon {
+    filter: invert(1); /* Invert the color */
 }

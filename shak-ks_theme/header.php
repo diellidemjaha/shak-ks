@@ -42,7 +42,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="d-flex gap-2 bg-dark text-white p-4 mt-0 rounded-1"> <!-- Move this div to the right -->
+            <div class="d-flex gap-2 bg-dark text-white p-4 rounded-1"> <!-- Move this div to the right -->
             <div class="search-container">
                 <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
                     <label>
@@ -53,8 +53,16 @@
                 </form>
             </div>
             <?php echo do_shortcode('[google-translator]'); ?>
-                <!-- <a class="nav-link mt-2" href="#">Favorites</a> -->
-                <a class="btn btn-outline-light rounded-5" href="<?php echo get_stylesheet_directory_uri(); ?>/login-form/">Log in</a>
+            <?php
+            if (is_user_logged_in()) {
+                // If user is logged in, show logout button
+                echo '<a class="btn btn-outline-light rounded-5" href="' . wp_logout_url(home_url()) . '">Log out</a>';
+            } else {
+                // If user is not logged in, show login button
+                echo '<a class="btn btn-outline-light rounded-5" href="' . get_stylesheet_directory_uri() . '/login-form/">Log in</a>';
+            }
+            ?>
+
             </div>
         </nav>
     </header>

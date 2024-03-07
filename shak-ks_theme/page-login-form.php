@@ -1,5 +1,10 @@
 
+<?php
 
+/*
+ * Template Name: Login form Template
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

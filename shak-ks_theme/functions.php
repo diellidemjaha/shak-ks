@@ -170,3 +170,16 @@ function custom_logout_redirect() {
 }
 
 add_action('wp_logout', 'custom_logout_redirect');
+
+function disable_links_for_non_logged_in_users($content) {
+    // Check if the user is not logged in
+    if (!is_user_logged_in()) {
+        // Disable pointer events for links
+        $content = preg_replace('/<a(.*?)>/', '<a$1 style="pointer-events: none;">', $content);
+    }
+
+    return $content;
+}
+
+add_filter('the_content', 'disable_links_for_non_logged_in_users');
+

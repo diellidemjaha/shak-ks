@@ -19,7 +19,7 @@ get_header();
             ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <header class="entry-header text-light m-0">
-                        <h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                        <h1 class="entry-title"><a style="color:white; text-decoration:none;" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                         <div class="entry-meta">
                             <?php echo 'Published on ' . get_the_date(); ?>
                         </div>
