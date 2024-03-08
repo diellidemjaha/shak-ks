@@ -18,7 +18,7 @@ get_header();
                     <div class="entry-content">
                         <?php
                         if (has_post_thumbnail()) {
-                            the_post_thumbnail('full', array('class' => 'img-fluid'));
+                            the_post_thumbnail('medium', array('class' => 'img-fluid'));
                         }
                         the_content();
                         ?>

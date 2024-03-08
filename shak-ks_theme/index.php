@@ -1,14 +1,14 @@
-
-
 <?php get_header(); ?>
 
 <div class="container mt-5">
+<h1 class="text-center" style="color:#05014a;"><?php post_type_archive_title(); ?></h1>
+
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
         <?php
-        // Your existing loop for search results
+
         if (have_posts()) :
             while (have_posts()) : the_post();
-                ?>
+        ?>
                 <article <?php post_class('col'); ?>>
                     <div class="card">
                         <?php if (has_post_thumbnail()) : ?>
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </article>
-                <?php
+        <?php
             endwhile;
         else :
             // Display a message when no search results are found

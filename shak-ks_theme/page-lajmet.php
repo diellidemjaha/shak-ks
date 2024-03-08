@@ -6,13 +6,14 @@
 get_header();
 ?>
 
+
 <div id="primary" class="content-area">
     <main id="main" class="site-main">
         <div class="container bg-light">
             <?php
             $lajmet_query = new WP_Query(array(
                 'post_type' => 'lajmet',
-                'posts_per_page' => -1, // Display all posts, adjust as needed
+                'posts_per_page' => -1,
             ));
 
             while ($lajmet_query->have_posts()) : $lajmet_query->the_post();
