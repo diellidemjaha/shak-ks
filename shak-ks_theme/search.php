@@ -8,15 +8,15 @@
         ?>
                 <div class="container bg-light mt-2 mb-2">
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <div class="card mt-3 p-4 custom-box">
+                        <div class="card mt-3 p-2 custom-box">
                             <!-- <h1 class="entry-title"></h1> -->
                         <h5 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
-                        <div class="entry-meta">
-                            </div>
+                        <!-- <div class="entry-meta"> -->
                             
                             <!-- <div class="entry-content"> -->
                                 </div><!-- .entry-content -->
-                                <p class="card-text"> <?php echo '<div class="mt-0">Published on ' . get_the_date(); '</div>'?></p>
+                                <p class="card-text"> <?php echo '<div class="mt-1">Published on ' . get_the_date(); '</div>'?></p>
+                            <!-- </div> -->
 
                                
                         <!-- <footer class="entry-footer"> -->

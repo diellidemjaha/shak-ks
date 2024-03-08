@@ -10,19 +10,13 @@
 
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <div class="container text-light mt-2 p-3">
-                  <div class="fs-1" style="color:black; text-decoration:none;"  <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-                    <div class="entry-meta">
-                        <?php
-                        echo 'Published on ' . get_the_date();
-                        ?>
-                    </div>
-                </header><!-- .entry-header -->
+                  <div class="text-dark" style="color:black; text-decoration:none;"  <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 
-                <div class="entry-content">
                     <?php the_content(); ?>
-                </div><!-- .entry-content -->
                 
-                <footer class="entry-footer">
+                       <p style="color:gray;"> <?php
+                        echo 'Published on ' . get_the_date();
+                        ?></p>
                     <?php edit_post_link('Edit', '<span class="edit-link">', '</span>'); ?>
             </article><!-- #post-<?php the_ID(); ?> -->
             

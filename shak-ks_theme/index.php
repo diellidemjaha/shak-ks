@@ -2,15 +2,15 @@
 
 <?php get_header(); ?>
 
-<div class="container m-5">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
         <?php
         // Your existing loop for search results
         if (have_posts()) :
             while (have_posts()) : the_post();
                 ?>
                 <article <?php post_class('col'); ?>>
-                    <div class="card h-100">
+                    <div class="card">
                         <?php if (has_post_thumbnail()) : ?>
                             <a href="<?php the_permalink(); ?>">
                                 <?php the_post_thumbnail('medium', ['class' => 'card-img-top', 'alt' => get_the_title()]); ?>

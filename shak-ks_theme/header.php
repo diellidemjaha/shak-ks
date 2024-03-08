@@ -17,7 +17,7 @@
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-light mt-0 custom-navbar">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
                 <img src="<?php echo get_template_directory_uri(); ?>/logo.png" alt="Logo" height="60" class="d-inline-block align-top m-2">
                 <span class="logo-text fs-1"><b>Info</b>PAGE</span>
             </a>
