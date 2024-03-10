@@ -61,7 +61,7 @@ add_action('init', 'register_temat_e_diskutimit_post_type');
 
 // Function to handle user registration
 function register_user_on_post() {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && isset($_POST['registration_form'])) {
         // Sanitize and validate form data
         $username = sanitize_user($_POST['username']);
         $email = sanitize_email($_POST['email']);

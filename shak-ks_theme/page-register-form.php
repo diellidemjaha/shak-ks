@@ -22,6 +22,7 @@ if (isset($_GET['registration_error'])) {
                     <!-- Registration Form -->
                     <form id="registration-form" action="<?php echo esc_url(home_url('/registration-form/')); ?>" method="post">
                         <div class="mb-3">
+                        <input type="hidden" name="registration_form" value="1">
                             <label for="username" class="form-label">Username:</label>
                             <input type="text" class="form-control" id="username" name="username" required>
                         </div>
