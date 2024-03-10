@@ -25,5 +25,11 @@
         <?php endif; ?>
     </div>
 </div>
+<script>
+  jQuery(document).ready(function ($) {
+    $('.line-notification').css('display', 'block');
+});
+
+</script>
 
 <?php get_footer(); ?>

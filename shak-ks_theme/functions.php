@@ -3,6 +3,8 @@
 
 // Enqueue custom styles and Bootstrap 5
 function enqueue_custom_styles() {
+    wp_add_inline_script('jquery-compat', 'var $ = jQuery.noConflict();');
+    wp_enqueue_script('jquery');
     // Enqueue Bootstrap 5 CSS
     wp_enqueue_style('shak-bootstrap-style', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
     
@@ -14,7 +16,6 @@ function enqueue_custom_styles() {
     
     // Enqueue jQuery in compatibility mode
     wp_enqueue_script('jquery-compat', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), null, true);
-    wp_add_inline_script('jquery-compat', 'var $ = jQuery.noConflict();');
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
 
@@ -60,13 +61,13 @@ add_action('init', 'register_temat_e_diskutimit_post_type');
 
 // Function to handle user registration
 function register_user_on_post() {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         // Sanitize and validate form data
         $username = sanitize_user($_POST['username']);
         $email = sanitize_email($_POST['email']);
         $password = $_POST['password'];
 
-        // Create a new user with hashed password
+        // Create a new user with a hashed password
         $user_id = wp_create_user($username, $password, $email);
 
         if (!is_wp_error($user_id)) {
@@ -76,12 +77,12 @@ function register_user_on_post() {
         } else {
             // Registration failed
             $error_message = $user_id->get_error_message();
-            echo "Registration failed: $error_message";
+            wp_redirect(home_url('/registration-form/?registration_error=' . urlencode($error_message)));
+            exit;
         }
     }
 }
 add_action('init', 'register_user_on_post');
-
 // Customize login redirection
 function custom_login_redirect($redirect_to, $request, $user) {
     // Redirect all users to the home page
@@ -183,3 +184,39 @@ function disable_links_for_non_logged_in_users($content) {
 
 add_filter('the_content', 'disable_links_for_non_logged_in_users');
 
+// Save custom fields during user registration and profile update
+function save_custom_registration_fields($user_id) {
+    if (isset($_POST['personal_id'])) {
+        update_user_meta($user_id, 'personal_id', sanitize_text_field($_POST['personal_id']));
+    }
+
+    if (isset($_POST['address'])) {
+        update_user_meta($user_id, 'address', sanitize_text_field($_POST['address']));
+    }
+}
+add_action('user_register', 'save_custom_registration_fields');
+add_action('profile_update', 'save_custom_registration_fields');
+
+// Display custom fields in user profile
+function show_custom_user_fields($user) {
+    ?>
+    <h3>Additional Information</h3>
+
+    <table class="form-table">
+        <tr>
+            <th><label for="personal_id">Personal ID Number</label></th>
+            <td>
+                <?php echo esc_html(get_user_meta($user->ID, 'personal_id', true)); ?>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="address">Address</label></th>
+            <td>
+                <?php echo esc_html(get_user_meta($user->ID, 'address', true)); ?>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+add_action('show_user_profile', 'show_custom_user_fields');
+add_action('edit_user_profile', 'show_custom_user_fields');

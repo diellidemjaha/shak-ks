@@ -1,15 +1,18 @@
 /* Custom Styles for WordPress Theme */
 
 body {
+    margin: 0;
+    padding: 0;
     background: url('./background-image.jpeg') center center fixed;
     background-size: cover;
     color: black;
     font-weight: 500;
+    margin-bottom: 80px !important;
 }
 
 body::before {
     content: '';
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -21,7 +24,7 @@ body::before {
 
 body::after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -118,6 +121,8 @@ header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     border-radius: 0px;
+    z-index: 9999;
+
 }
 
 .navbar-nav .menu-item-has-children:hover>.sub-menu {
@@ -138,6 +143,7 @@ header {
 .navbar-nav .sub-menu a:hover {
     background-color: #f0f0f0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
 }
 
 /* Style for the second-level dropdown links */
@@ -149,6 +155,8 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     border-radius: 0px;
     margin-top: -10px;
+    z-index: 9999;
+
 }
 
 .navbar-nav .sub-menu:hover>.sub-menu {
@@ -183,6 +191,8 @@ header {
     border-radius: 0px;
     /* Adjust the border-radius as needed */
     margin-top: 10px;
+    z-index: 9999;
+
 }
 
 .navbar-nav .sub-menu .sub-menu:hover>.sub-menu {
@@ -215,6 +225,8 @@ header {
     border-radius: 0px;
     /* Adjust the border-radius as needed */
     margin-top: 10px;
+    z-index: 9999;
+
 }
 
 .navbar-nav .sub-menu .sub-menu .sub-menu:hover>.sub-menu {
@@ -315,14 +327,20 @@ a {
 footer {
     background-color: #05014a; /* Replace with your header background color */
     color: #fff; /* White text color */
-    padding: 50px; /* Adjust padding as needed */
-    margin-top: 15%;
+    padding: 10px; /* Adjust padding as needed */
+    /* height: 20px; */
 }
 
 /* Optionally, you can remove the box shadow from the footer */
 footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     box-shadow: none;
-    margin-bottom: 0px;
+    margin-bottom: 0px !important;
+    margin-top: 20px;
+    height: 70px; 
+    z-index: 0;
 }
 
 .custom-container {
@@ -330,4 +348,36 @@ footer {
 }
 .custom-box {
     min-height: 100px; /* Adjust the height as needed */
+}
+
+.line-notification {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f00; /* Set your desired background color */
+    color: #fff; /* Set your desired text color */
+    text-align: center;
+    padding: 10px;
+    /* display: none; */ /* Comment out or remove this line */
+    border: 2px solid #000; /* Add a border for debugging */
+    box-sizing: border-box; /* Include padding and border in the total width/height */
+}
+  
+  .under-construction {
+    animation: slideUp 0.5s ease-in-out forwards; /* Adjust the duration as needed */
+  }
+  
+  @keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0); /* Move up into view */
+    }
+}
+
+/* Hide WordPress logo for logged-in users */
+body.logged-in #wpadminbar #wp-admin-bar-wp-logo > .ab-item {
+    display: none;
 }

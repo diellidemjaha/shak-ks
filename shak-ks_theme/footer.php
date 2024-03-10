@@ -3,8 +3,8 @@
 </main>
 
 <footer>
-    <div class="contact-info">
-        <p>Contact us: info@infopage.com</p>
+    <div class="text-white text-center">
+        <p>Copyright 2024</p>
     </div>
 </footer>
 

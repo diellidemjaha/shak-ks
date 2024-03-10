@@ -27,4 +27,3 @@
 </div><!-- #primary -->
 </div>
 
-<?php get_footer(); ?>

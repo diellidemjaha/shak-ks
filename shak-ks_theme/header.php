@@ -19,7 +19,7 @@
         <nav class="navbar navbar-expand-lg navbar-light mt-0 custom-navbar">
             <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
                 <img src="<?php echo get_template_directory_uri(); ?>/logo.png" alt="Logo" height="60" class="d-inline-block align-top m-2">
-                <span class="logo-text fs-1"><b>Info</b>PAGE</span>
+                <img src="<?php echo get_template_directory_uri(); ?>/infoPAGE.png" alt="text" height="60" class="d-inline-block align-top">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,5 +66,13 @@
             </div>
         </nav>
     </header>
+    <button type="button" class="btn btn-secondary w-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+ Website under construction
+</button>
+<script>
+  jQuery(document).ready(function ($) {
+    $('.line-notification').css('display', 'block');
+});
 
+</script>
     <main>
