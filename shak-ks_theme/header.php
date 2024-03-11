@@ -52,7 +52,17 @@
                     </label>
                 </form>
             </div>
-            <?php echo do_shortcode('[google-translator]'); ?>
+            <?php
+                $albanian_link = do_shortcode('[glt language="Albanian" label="SQ" image="no" text="yes" image_size="24"]');
+                $croatian_link = do_shortcode('[glt language="Croatian" label="SR" image="no" text="yes" image_size="24"]');
+                $english_link = do_shortcode('[glt language="English" label="EN" image="no" text="yes" image_size="24"]');
+
+                echo '<div class="btn btn-outline-light">' . $english_link . '</div>';
+                echo '<div class="btn btn-outline-light">' . $albanian_link . '</div>';
+                echo '<div class="btn btn-outline-light">' . $croatian_link. '</div>';
+                ?>
+
+
             <?php
             if (is_user_logged_in()) {
                 // If user is logged in, show logout button

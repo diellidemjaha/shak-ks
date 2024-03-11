@@ -33,7 +33,11 @@ body::after {
     background-size: cover;
     z-index: -2; /* Ensure the background image is behind the overlay */
 }
-
+  /* Custom style for white links */
+  .navbar-links .btn-outline-light a,
+  .navbar-links .btn-outline-light a:visited {
+      color: white !important;
+  }
 header {
     background-color: #05014a;
     margin-top: 0px;

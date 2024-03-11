@@ -43,6 +43,7 @@
                             <button type="submit" class="btn btn-primary" name="login">Login</button>
                         </div>
                     </form>
+                    <p>Not a subscriber? <a href="<?php echo get_template_directory_uri(); ?>/register-form">Register here</a>.</p>
                 </div>
             </div>
         </div>

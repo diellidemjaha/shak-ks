@@ -29,7 +29,7 @@
             endwhile;
         else :
             // Display a message when no search results are found
-            echo '<p>' . esc_html__('No results found.', 'shak-ks_theme') . '</p>';
+            echo '<p class="container mt-4">' . esc_html__('No results found.', 'shak-ks_theme') . '</p>';
         endif;
         ?>
     </main><!-- #main -->
