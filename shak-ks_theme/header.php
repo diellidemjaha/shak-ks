@@ -57,9 +57,9 @@
                 $croatian_link = do_shortcode('[glt language="Croatian" label="SR" image="no" text="yes" image_size="24"]');
                 $english_link = do_shortcode('[glt language="English" label="EN" image="no" text="yes" image_size="24"]');
 
-                echo '<div class="btn btn-outline-light">' . $english_link . '</div>';
-                echo '<div class="btn btn-outline-light">' . $albanian_link . '</div>';
-                echo '<div class="btn btn-outline-light">' . $croatian_link. '</div>';
+                echo '<div class="btn btn-secondary">' . $english_link . '</div>';
+                echo '<div class="btn btn-secondary">' . $albanian_link . '</div>';
+                echo '<div class="btn btn-secondary">' . $croatian_link. '</div>';
                 ?>
 
 
