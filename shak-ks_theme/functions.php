@@ -120,7 +120,7 @@ function add_comments_support_to_temat_e_diskutimit() {
     add_post_type_support('temat_e_diskutimit', 'comments');
 }
 
-function custom_menu_item_classes($classes, $item, $args) {
+function custom_menu_item_classess($classes, $item, $args) {
     // Check if the current user is not logged in
     if (!is_user_logged_in()) {
         // Check if the menu item corresponds to "Link 10" or is a parent of "Link 10"
@@ -135,7 +135,7 @@ function custom_menu_item_classes($classes, $item, $args) {
     return $classes;
 }
 
-add_filter('nav_menu_css_class', 'custom_menu_item_classes', 10, 3);
+add_filter('nav_menu_css_class', 'custom_menu_item_classess', 10, 3);
 
 // JavaScript function to prevent clicking on disabled links
 function custom_disable_links_script() {
@@ -220,3 +220,73 @@ function show_custom_user_fields($user) {
 }
 add_action('show_user_profile', 'show_custom_user_fields');
 add_action('edit_user_profile', 'show_custom_user_fields');
+
+
+//TEST
+
+// Function to add custom roles
+// Function to add custom roles
+function add_custom_roles() {
+    // Check if 'role1' doesn't exist before adding it
+    if (!get_role('role1')) {
+        add_role('role1', 'Role 1', array(
+            'read_link11' => true,
+            'read'        => true,
+        ));
+
+        // Assign capabilities for 'role1' to access "Link 11"
+        $role1 = get_role('role1');
+        $role1->add_cap('read_link11');
+    }
+
+    // Check if 'role2' doesn't exist before adding it
+    if (!get_role('role2')) {
+        add_role('role2', 'Role 2', array(
+            'read_linka' => true,
+            'read'       => true,
+        ));
+
+        // Assign capabilities for 'role2' to access "Link a"
+        $role2 = get_role('role2');
+        $role2->add_cap('read_linka');
+    }
+}
+
+// Hook the function to run when the theme is activated
+add_action('after_switch_theme', 'add_custom_roles');
+
+// Function to remove custom roles on theme deactivation
+function remove_custom_roles_on_theme_deactivation() {
+    remove_role('role1');
+    remove_role('role2');
+}
+
+// Hook the function to run when the theme is deactivated
+add_action('switch_theme', 'remove_custom_roles_on_theme_deactivation');
+
+// Function to modify menu item classes and disable links for 'role1' and 'role2'
+function custom_menu_item_classes($classes, $item, $args) {
+    // Check if the user is logged in
+    if (is_user_logged_in()) {
+        // Get the current user's roles
+        $user_roles = wp_get_current_user()->roles;
+
+        // Check if the user has 'role1' and the menu item corresponds to "Link 11" or is a parent of "Link 11"
+        if (in_array('role1', $user_roles) && ($item->title === 'Link 11' || in_array('menu-item-has-children', $item->classes))) {
+            return $classes; // Link is enabled for 'role1'
+        }
+
+        // Check if the user has 'role2' and the menu item corresponds to "Link a" or is a parent of "Link a"
+        if (in_array('role2', $user_roles) && ($item->title === 'Link a' || in_array('menu-item-has-children', $item->classes))) {
+            return $classes; // Link is enabled for 'role2'
+        }
+    }
+
+    // User is not logged in or doesn't have the required role, disable links
+    $classes[] = 'disabled';
+    $item->url .= ' data-disabled="true"';
+    
+    return $classes;
+}
+
+add_filter('nav_menu_css_class', 'custom_menu_item_classes', 10, 3);
