@@ -1,5 +1,4 @@
 <?php
-// If comments are open or if there are comments, display the comment template
 if (comments_open() || get_comments_number()) :
 ?>
    <div id="comments" class="comments-area">
@@ -38,5 +37,5 @@ if (comments_open() || get_comments_number()) :
     </div>
 
 <?php
-endif; // Check for open comments or comments number
+endif; 
 ?>
