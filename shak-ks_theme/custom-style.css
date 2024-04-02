@@ -17,9 +17,9 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: white; /* White color overlay */
-    opacity: 0.4; /* Adjust the opacity as needed */
-    z-index: -1; /* Ensure the overlay is behind the content */
+    background: white; 
+    opacity: 0.4;
+    z-index: -1;
 }
 
 body::after {
@@ -31,7 +31,7 @@ body::after {
     height: 100%;
     background: url('./background-image.jpeg') center center fixed;
     background-size: cover;
-    z-index: -2; /* Ensure the background image is behind the overlay */
+    z-index: -2; 
 }
   /* Custom style for white links */
   .navbar-links .btn-outline-light a,
@@ -51,7 +51,6 @@ header {
 
 .custom-navbar {
     background-color: #05014a;
-    /* Change this color to your desired shade of blue */
 }
 
 .logo {
@@ -82,13 +81,9 @@ header {
     padding: 8px;
     width: 70%;
     border: none;
-    /* Remove input border */
     border-radius: 5px;
-    /* Rounded corners for input */
     background-color: #fff;
-    /* White background for input */
     color: #000;
-    /* Black text color for input */
 }
 
 .navbar-links ul {
@@ -102,7 +97,6 @@ header {
 
 .navbar-links a {
     color: #fff;
-    /* Set the main nav link color to white */
     text-decoration: none;
     font-size: 16px;
 }
@@ -193,7 +187,6 @@ header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     border-radius: 0px;
-    /* Adjust the border-radius as needed */
     margin-top: 10px;
     z-index: 9999;
 
@@ -227,7 +220,6 @@ header {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     border-radius: 0px;
-    /* Adjust the border-radius as needed */
     margin-top: 10px;
     z-index: 9999;
 
@@ -325,17 +317,16 @@ a {
 }
 
 .navbar-toggler-icon {
-    filter: invert(1); /* Invert the color */
+    filter: invert(1); 
 }
 
 footer {
-    background-color: #05014a; /* Replace with your header background color */
-    color: #fff; /* White text color */
-    padding: 10px; /* Adjust padding as needed */
+    background-color: #05014a; 
+    color: #fff;
+    padding: 10px; 
     /* height: 20px; */
 }
 
-/* Optionally, you can remove the box shadow from the footer */
 footer {
     position: absolute;
     bottom: 0;
@@ -348,10 +339,10 @@ footer {
 }
 
 .custom-container {
-    min-height: 300px; /* Adjust the height as needed */
+    min-height: 300px; 
 }
 .custom-box {
-    min-height: 100px; /* Adjust the height as needed */
+    min-height: 100px; 
 }
 
 .line-notification {
@@ -359,17 +350,17 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #f00; /* Set your desired background color */
-    color: #fff; /* Set your desired text color */
+    background-color: #f00; 
+    color: #fff; 
     text-align: center;
     padding: 10px;
-    /* display: none; */ /* Comment out or remove this line */
-    border: 2px solid #000; /* Add a border for debugging */
-    box-sizing: border-box; /* Include padding and border in the total width/height */
+    /* display: none; */ 
+    border: 2px solid #000; 
+    box-sizing: border-box; 
 }
   
   .under-construction {
-    animation: slideUp 0.5s ease-in-out forwards; /* Adjust the duration as needed */
+    animation: slideUp 0.5s ease-in-out forwards; 
   }
   
   @keyframes slideUp {
@@ -377,7 +368,7 @@ footer {
         transform: translateY(100%);
     }
     100% {
-        transform: translateY(0); /* Move up into view */
+        transform: translateY(0); 
     }
 }
 
