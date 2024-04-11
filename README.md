@@ -3,4 +3,4 @@ web development repo for Wordpress Theme customization for "Services of Architec
 
 Theme is still under construction.
 
-![Example Screenshot](screenshot2.jpg)
+![Example Screenshot](screenshot1a.png)
