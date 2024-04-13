@@ -21,7 +21,7 @@
             </article><!-- #post-<?php the_ID(); ?> -->
             
             <?php
-        endwhile;
+        endwhile; // End of the loop.
         ?>
     </main><!-- #main -->
 </div><!-- #primary -->
