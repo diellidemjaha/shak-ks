@@ -32,7 +32,7 @@
                     <!-- Login Form -->
                     <form id="login-form" action="<?php echo esc_url(site_url('wp-login.php', 'login_post')); ?>"  method="post">
                         <div class="mb-3">
-                            <label for="username" class="form-label">Username:</label>
+                            <label for="username" class="form-label">Username ose email:</label>
                             <input type="text" class="form-control" id="login-username" name="log" required>
                         </div>
                         <div class="mb-3">
@@ -43,7 +43,7 @@
                             <button type="submit" class="btn btn-primary" name="login">Login</button>
                         </div>
                     </form>
-                    <p>Not a subscriber? <a href="<?php echo get_template_directory_uri(); ?>/register-form">Register here</a>.</p>
+                    <p>Nuk jeni ende anëtarë? <a href="<?php echo home_url('/register-form');?>">Regjistrohu këtu</a>.</p>
                 </div>
             </div>
         </div>
