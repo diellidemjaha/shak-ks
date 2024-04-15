@@ -94,6 +94,7 @@ header {
 .navbar-links ul {
     list-style: none;
     display: flex;
+   
 }
 
 .navbar-links li {
@@ -142,6 +143,8 @@ header {
     text-decoration: none;
     display: block;
     transition: box-shadow 0.3s ease;
+    font-size: 14px; /* Adjust the font size as desired */
+    line-height: 1.2; /* Adjust the line height as desired */
 }
 
 .navbar-nav .sub-menu a:hover {
@@ -176,6 +179,8 @@ header {
     text-decoration: none;
     display: block;
     transition: box-shadow 0.3s ease;
+    font-size: 14px; /* Adjust the font size as desired */
+    line-height: 1.2; /* Adjust the line height as desired */
 }
 
 .navbar-nav .sub-menu .sub-menu a:hover {
@@ -212,6 +217,8 @@ header {
     text-decoration: none;
     display: block;
     transition: box-shadow 0.3s ease;
+    font-size: 14px; /* Adjust the font size as desired */
+    line-height: 1.2; /* Adjust the line height as desired */
 }
 
 .navbar-nav .sub-menu .sub-menu .sub-menu a:hover {
@@ -246,6 +253,8 @@ header {
     text-decoration: none;
     display: block;
     transition: box-shadow 0.3s ease;
+    font-size: 14px; /* Adjust the font size as desired */
+    line-height: 1.2; /* Adjust the line height as desired */
 }
 
 .navbar-nav .sub-menu .sub-menu .sub-menu a:hover {
