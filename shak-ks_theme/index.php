@@ -3,14 +3,14 @@
 <div class="container mt-5">
 <h1 class="text-center" style="color:#05014a;"><?php post_type_archive_title(); ?></h1>
 
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 gap-2">
         <?php
 
         if (have_posts()) :
             while (have_posts()) : the_post();
         ?>
                 <article <?php post_class('col'); ?>>
-                    <div class="card">
+                    <div class="card my-4">
                         <?php if (has_post_thumbnail()) : ?>
                             <a href="<?php the_permalink(); ?>">
                                 <?php the_post_thumbnail('medium', ['class' => 'card-img-top', 'alt' => get_the_title()]); ?>

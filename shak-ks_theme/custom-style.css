@@ -145,6 +145,9 @@ header {
     transition: box-shadow 0.3s ease;
     font-size: 14px; /* Adjust the font size as desired */
     line-height: 1.2; /* Adjust the line height as desired */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide any overflow text */
+    text-overflow: ellipsis; /* Show ellipsis for overflow text */
 }
 
 .navbar-nav .sub-menu a:hover {
