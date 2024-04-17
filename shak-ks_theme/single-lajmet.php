@@ -25,6 +25,9 @@ get_header();
 
                         <?php edit_post_link('Edit', '<span class="edit-link">', '</span>'); ?>
                 </article><!-- #post-<?php the_ID(); ?> -->
+                <div class="comments-section">
+                    <?php comments_template('/comments.php'); ?>
+                </div>
             <?php endwhile; ?>
         </div>
     </main><!-- #main -->

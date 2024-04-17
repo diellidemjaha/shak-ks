@@ -89,53 +89,6 @@ function register_ekryeqyteti_post_type()
 }
 add_action('init', 'register_ekryeqyteti_post_type');
 
-
-// // Updated registration function
-// function register_user_on_post() {
-//     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && isset($_POST['registration_form'])) {
-//         // Sanitize and validate form data
-//         $username = sanitize_user($_POST['username']);
-//         $email = sanitize_email($_POST['email']);
-//         $password = $_POST['password'];
-//         $name = sanitize_text_field($_POST['name']);
-//         $lastname = sanitize_text_field($_POST['lastname']);
-//         $personal_id = sanitize_text_field($_POST['personal_id']);
-//         $credentials = isset($_POST['credentials']) ? sanitize_text_field($_POST['credentials']) : '';
-//         $address = sanitize_text_field($_POST['address']);
-//         $selected_role = sanitize_text_field($_POST['role']); // Get selected role
-
-//         // Create a new user with additional fields
-//         $userdata = array(
-//             'user_login'    => $username,
-//             'user_email'    => $email,
-//             'user_pass'     => $password,
-//             'first_name'    => $name,
-//             'last_name'     => $lastname,
-//             'role'          => $selected_role, // Set selected role
-//             // Add any additional user meta data as needed
-//         );
-
-//         // Register the user
-//         $user_id = wp_insert_user($userdata);
-
-//         if (!is_wp_error($user_id)) {
-//             // Save additional custom fields
-//             save_custom_registration_fields($user_id);
-
-//             // Registration successful
-//             wp_redirect(home_url('/registration-successful/')); // Redirect to success page
-//             exit;
-//         } else {
-//             // Registration failed
-//             $error_message = $user_id->get_error_message();
-//             wp_redirect(home_url('/registration-form/?registration_error=' . urlencode($error_message)));
-//             exit;
-//         }
-//     }
-// }
-// add_action('init', 'register_user_on_post');
-
-
 // Register custom user registration form
 function custom_register_user_form() {
     ob_start(); // Start output buffering
@@ -155,6 +108,7 @@ function register_user_on_post()
         $lastname = sanitize_text_field($_POST['lastname']);
         $password = $_POST['password'];
         $selected_role = sanitize_text_field($_POST['role']);
+        $credentials = sanitize_text_field($_POST['credentials']);
 
         // Create a new user with a hashed password
         $user_id = wp_create_user($username, $password, $email);
@@ -164,6 +118,7 @@ function register_user_on_post()
             // Update user meta with first and last name
             update_user_meta($user_id, 'first_name', $firstname);
             update_user_meta($user_id, 'last_name', $lastname);
+            update_user_meta($user_id, 'credentials', $credentials);
 
             // Set user role
             $user = new WP_User($user_id);
@@ -182,7 +137,6 @@ function register_user_on_post()
 }
 add_action('init', 'register_user_on_post');
 
-
 // Customize login redirection
 function custom_login_redirect($redirect_to, $request, $user)
 {
@@ -191,7 +145,7 @@ function custom_login_redirect($redirect_to, $request, $user)
 }
 add_filter('login_redirect', 'custom_login_redirect', 10, 3);
 
-// Allow only logged-in users to post comments
+//Allow only logged-in users to post comments
 function restrict_comments_to_logged_in_users($open, $post_id)
 {
     // Check if the post type is 'lajmet' or 'temat_e_diskutimit'
@@ -219,57 +173,41 @@ add_filter('user_has_cap', 'allow_administrator_to_edit_all_comments', 10, 4);
 
 // Add support for comments to custom post type 'temat_e_diskutimit'
 add_action('init', 'add_comments_support_to_temat_e_diskutimit');
+
 function add_comments_support_to_temat_e_diskutimit()
 {
     add_post_type_support('temat_e_diskutimit', 'comments');
 }
 
-function custom_menu_item_classes($classes, $item, $args)
-{
-    // Check if the current user is not logged in
-    if (!is_user_logged_in()) {
-        // Check if the menu item corresponds to "Link 10" or is a parent of "Link 10"
-        if ($item->title === 'Translated link' || in_array('menu-item-has-children', $item->classes)) {
-            // Add the "disabled" class
-            $classes[] = 'disabled';
-            // Add custom data attribute to store disabled status
-            $item->url .= ' data-disabled="true"';
-        }
-    }
-
-    return $classes;
-}
-
-add_filter('nav_menu_css_class', 'custom_menu_item_classes', 10, 3);
-
-// JavaScript function to prevent clicking on disabled links
+//disable external links of modules when no user is logged in
 function custom_disable_links_script()
 {
-?>
-    <style>
-        .menu-item.disabled a {
-            pointer-events: none;
-            cursor: default;
-        }
-    </style>
+    // Check if user is logged in
+    $is_logged_in = is_user_logged_in();
+
+    // List of menu items to be disabled for non-logged-in users
+    $disabled_menu_items = array('eLEJA', 'eHARTA', 'eARKITEKTI', 'eNDIHMA', 'Gjeoportali', 'eRegulativa');
+
+    // Output JavaScript code to disable links for non-logged-in users
+    ?>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var disabledLinks = document.querySelectorAll('.menu-item.disabled a');
-            disabledLinks.forEach(function(link) {
-                link.removeAttribute('title'); // Remove the title attribute to hide the tooltip
-                link.addEventListener('click', function(event) {
-                    if (link.getAttribute('data-disabled') === 'true') {
-                        event.preventDefault();
-                        alert('This link is disabled.');
-                    }
-                });
-            });
+        jQuery(document).ready(function($) {
+            // Check if the user is not logged in
+            if (!<?php echo $is_logged_in ? 'true' : 'false'; ?>) {
+                <?php foreach ($disabled_menu_items as $item) : ?>
+                    var menuItem = $('.menu-item:contains("<?php echo $item; ?>")');
+                    menuItem.find('a').addClass('disabled').removeAttr('href').removeAttr('title').on('click', function(e) {
+                        e.preventDefault();
+                    });
+                <?php endforeach; ?>
+            }
         });
     </script>
-<?php
+    <?php
 }
 
 add_action('wp_footer', 'custom_disable_links_script');
+
 
 function custom_logout_redirect()
 {
@@ -320,9 +258,9 @@ function show_custom_user_fields($user)
             </td>
         </tr>
         <tr>
-            <th><label for="address">Address</label></th>
+            <th><label for="credentials">Kredencialet</label></th>
             <td>
-                <?php echo esc_html(get_user_meta($user->ID, 'address', true)); ?>
+                <?php echo esc_html(get_user_meta($user->ID, 'credentials', true)); ?>
             </td>
         </tr>
     </table>

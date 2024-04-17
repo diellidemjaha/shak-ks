@@ -3,8 +3,8 @@
 </main>
 
 <footer>
-    <div class="text-white text-center">
-        <p>Copyright 2024</p>
+    <div class="text-primary text-center">
+        <p>Copyright SHAK-KS 2024</p>
     </div>
 </footer>
 

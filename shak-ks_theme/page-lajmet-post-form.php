@@ -24,7 +24,7 @@ get_header();
                         <label for="featured_image">Ngarko Foto</label>
                         <input type="file" class="form-control-file mb-2" id="featured_image" name="featured_image">
                     </div>
-                    <button type="submit" class="btn btn-primary float-end">Submit Post</button>
+                    <button type="submit" class="btn btn-primary float-end">Posto Lajmin</button>
                 </form>
                 <?php
             else :
