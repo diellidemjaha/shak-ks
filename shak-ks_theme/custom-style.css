@@ -397,3 +397,8 @@ footer {
 body.logged-in #wpadminbar #wp-admin-bar-wp-logo > .ab-item {
     display: none;
 }
+
+/* Hide menu items for non-logged-in users */
+.menu-item.disabled {
+    display: none !important;
+}
