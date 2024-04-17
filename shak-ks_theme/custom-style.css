@@ -401,4 +401,8 @@ body.logged-in #wpadminbar #wp-admin-bar-wp-logo > .ab-item {
 /* Hide menu items for non-logged-in users */
 .menu-item.disabled {
     display: none !important;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 60e7dd1ba887fd9746afaf4db60f8af57bec87f2

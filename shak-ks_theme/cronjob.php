@@ -15,10 +15,10 @@ if ($conn->connect_error) {
 }
 
 // Create user_ids_to_be_deleted table
-$sql = "CREATE TABLE IF NOT EXISTS user_ids_to_be_deleted (
-        user_id INT
-    )";
-$conn->query($sql);
+// $sql = "CREATE TABLE IF NOT EXISTS user_ids_to_be_deleted (
+//         user_id INT
+//     )";
+// $conn->query($sql);
 
 // Insert user IDs into the table
 $sql = "INSERT INTO user_ids_to_be_deleted (user_id)
@@ -38,9 +38,13 @@ $sql = "DELETE FROM wp_usermeta
         WHERE user_id IN (SELECT user_id FROM user_ids_to_be_deleted)";
 $conn->query($sql);
 
+//Truncate the table user_ids_to_be_deleted
+// $sql = "TRUNCATE TABLE user_ids_to_be_deleted";
+// $conn->query($sql);
+
 // Drop the table after deletion
-$sql = "DROP TABLE IF EXISTS user_ids_to_be_deleted";
-$conn->query($sql);
+// $sql = "DROP TABLE IF EXISTS user_ids_to_be_deleted";
+// $conn->query($sql);
 
 // Close connection
 $conn->close();
